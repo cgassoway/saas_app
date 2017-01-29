@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: <%= ENV['USERNAME'] %>
+  password: <%= ENV['PASSWORD'] %>
+  host:     <%= ENV['IP'] %>
+
+development:
+  <<: *default
+  database: saas_app_development
+
+test:
+  <<: *default
+  database: saasapp_test
+
+production:
+  <<: *default
+  database: saas_app_production
